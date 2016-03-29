@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Angular Material - Starter App</title>
+    <title>Music Website</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,19 +22,19 @@
     </style>
 </head>
     
-<body ng-app="myApp" layout="row" ng-controller="UserController as ul" ng-cloak >
+<body ng-app="myApp" layout="row" ng-controller="ViewController as vl" ng-cloak >
     <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
         md-component-id="left"
-        ng-click="ul.toggleList()" aria-label="Show User List"
-        md-is-locked-open="$mdMedia('gt-sm')">
+        ng-click="vl.toggleList()" aria-label="Show View List"
+        md-is-locked-open="$mdMedia('gt-md')">
 
         <md-toolbar class="md-whiteframe-z1">
-            <h3>Users</h3>
+            <h3>Menu</h3>
         </md-toolbar>
 
         <md-list>
-            <md-list-item ng-repeat="it in ul.users">
-                <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
+            <md-list-item ng-repeat="it in vl.views">
+                <md-button ng-click="vl.selectView(it)" ng-class="{'selected' : it === vl.selected }">
                     <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
                     {{it.name}}
                 </md-button>
@@ -46,21 +46,13 @@
     <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
 
         <md-toolbar layout="row" class="md-whiteframe-z1">
-            <md-button id="main" class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
+            <md-button id="main" class="menu" hide-gt-md ng-click="vl.toggleList()" aria-label="Show View List">
                 <md-icon md-svg-icon="menu" ></md-icon>
             </md-button>
-            <h3>Angular Material - Starter App</h3>
+            <h3>Music Website</h3>
         </md-toolbar>
 
-        <md-content flex id="content">
-            <md-icon md-svg-icon="{{ul.selected.avatar}}" class="avatar"></md-icon>
-            <h2>{{ul.selected.name}}</h2>
-            <p>{{ul.selected.content}}</p>
-
-            <md-button class="contact" md-no-ink ng-click="ul.makeContact(ul.selected)" aria-label="Share with {{ ul.selected.name }}">
-                <md-tooltip>Contact {{ ul.selected.name }}</md-tooltip>
-                <md-icon md-svg-icon="share"></md-icon>
-            </md-button>
+        <md-content flex ng-view id="content">
         </md-content>
 
     </div>
@@ -69,11 +61,10 @@
     <script src="/3rdParty-js/angular-aria.js"></script>
     <script src="/3rdParty-js/angular-animate.js"></script>
     <script src="/3rdParty-js/angular-material.js"></script>
+    <script src="/3rdParty-js/angular-route.js"></script>
     <script src="main.js"></script>
 
-    <script src="./src/users/Users.js"></script>
-    <script src="./src/users/UserController.js"></script>
-    <script src="./src/users/UserService.js"></script>
+    <script src="./views/ViewController.js"></script>
 
 </body>
 </html>

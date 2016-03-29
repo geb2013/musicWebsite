@@ -1,7 +1,7 @@
 (function(){
     'use strict';
 
-    var myApp = angular.module('myApp', ['ngMaterial', 'users']);
+    var myApp = angular.module('myApp', ['ngMaterial', 'ngRoute', 'views']);
 
     myApp.config(function($mdThemingProvider, $mdIconProvider){
       $mdIconProvider
@@ -15,6 +15,12 @@
           $mdThemingProvider.theme('default')
               .primaryPalette('brown')
               .accentPalette('red');
+    });
+    
+    myApp.config(function($mdThemingProvider) {
+        $mdThemingProvider.theme('default')
+            .primaryPalette('blue')
+            .accentPalette('green');
     });
 
 })();

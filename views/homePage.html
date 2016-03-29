@@ -1,0 +1,10 @@
+<div>
+    <md-icon md-svg-icon="{{vl.selected.avatar}}" class="avatar"></md-icon>
+    <h2>{{vl.selected.name}}</h2>
+    <p>{{vl.selected.content}}</p>
+
+    <md-button class="contact" md-no-ink ng-click="vl.makeContact(vl.selected)" aria-label="Share with {{ vl.selected.name }}">
+        <md-tooltip>Contact {{ vl.selected.name }}</md-tooltip>
+        <md-icon md-svg-icon="share"></md-icon>
+    </md-button>
+</div>
