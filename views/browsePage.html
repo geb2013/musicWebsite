@@ -1,97 +1,33 @@
-<div style="padding-top: 100px">
+<div style="padding-top: 100px" ng-controller="BrowseController as browseCtrl">
+    <div ng-repeat="album in albums" style="padding-top:30px">
+        <md-display-1>{{album.name}}</md-display-1>
+        
+        <md-grid-list md-cols="1" md-cols-gt-xs="2" md-cols-gt-sm="3" md-cols-gt-md="4"
+            md-row-height-gt-md="1:1" md-row-height="1:1"
+            md-gutter="12px" md-gutter-gt-sm="8px">
+            
+            <md-grid-tile ng-repeat="song in album.songs">
+                <md-card style="height: 100%; width: 100%; background: #aed581">
+                    <img ng-src="images/washedout.png" class="md-card-image" alt="Washed Out">
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">{{song.title}}</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button class="md-icon-button" aria-label="Favorite">
+                            <md-icon md-svg-icon="images/favorite.svg"></md-icon>
+                        </md-button>
+                        <md-button class="md-icon-button" aria-label="Settings">
+                            <md-icon md-svg-icon="images/menu.svg"></md-icon>
+                        </md-button>
+                        <md-button class="md-icon-button" aria-label="Share">
+                            <md-icon md-svg-icon="images/share.svg"></md-icon>
+                        </md-button>
+                    </md-card-actions>
+                </md-card>
+            </md-grid-tile>
 
-    <md-grid-list md-cols="1" md-cols-gt-xs="2" md-cols-gt-sm="3" md-cols-gt-md="4"
-        md-row-height-gt-md="1:1" md-row-height="1:1"
-        md-gutter="12px" md-gutter-gt-sm="8px" >
-        
-        <md-grid-tile>
-            <md-card style="height: 100%; width: 100%; background: #00bd84">
-                <img ng-src="images/washedout.png" class="md-card-image" alt="Washed Out">
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">Song</span>
-                    </md-card-title-text>
-                </md-card-title>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-icon-button" aria-label="Favorite">
-                        <md-icon md-svg-icon="images/favorite.svg"></md-icon>
-                    </md-button>
-                    <md-button class="md-icon-button" aria-label="Settings">
-                        <md-icon md-svg-icon="images/menu.svg"></md-icon>
-                    </md-button>
-                    <md-button class="md-icon-button" aria-label="Share">
-                        <md-icon md-svg-icon="images/share.svg"></md-icon>
-                    </md-button>
-                </md-card-actions>
-            </md-card>
-        </md-grid-tile>
-        
-        <md-grid-tile>
-            <md-card style="height: 100%; width: 100%; background: #00bfa5">
-                <img ng-src="images/washedout.png" class="md-card-image" alt="Washed Out">
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">Best Song</span>
-                    </md-card-title-text>
-                </md-card-title>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-icon-button" aria-label="Favorite">
-                        <md-icon md-svg-icon="images/favorite.svg"></md-icon>
-                    </md-button>
-                    <md-button class="md-icon-button" aria-label="Settings">
-                        <md-icon md-svg-icon="images/menu.svg"></md-icon>
-                    </md-button>
-                    <md-button class="md-icon-button" aria-label="Share">
-                        <md-icon md-svg-icon="images/share.svg"></md-icon>
-                    </md-button>
-                </md-card-actions>
-            </md-card>
-        </md-grid-tile>
-        
-        <md-grid-tile>
-            <md-card style="height: 100%; width: 100%; background: #42bd41">
-                <img ng-src="images/washedout.png" class="md-card-image" alt="Washed Out">
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">Other Song</span>
-                    </md-card-title-text>
-                </md-card-title>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-icon-button" aria-label="Favorite">
-                        <md-icon md-svg-icon="images/favorite.svg"></md-icon>
-                    </md-button>
-                    <md-button class="md-icon-button" aria-label="Settings">
-                        <md-icon md-svg-icon="images/menu.svg"></md-icon>
-                    </md-button>
-                    <md-button class="md-icon-button" aria-label="Share">
-                        <md-icon md-svg-icon="images/share.svg"></md-icon>
-                    </md-button>
-                </md-card-actions>
-            </md-card>
-        </md-grid-tile>
-        
-        <md-grid-tile>
-            <md-card style="height: 100%; width: 100%; background: #aed581">
-                <img ng-src="images/washedout.png" class="md-card-image" alt="Washed Out">
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">The Song</span>
-                    </md-card-title-text>
-                </md-card-title>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-icon-button" aria-label="Favorite">
-                        <md-icon md-svg-icon="images/favorite.svg"></md-icon>
-                    </md-button>
-                    <md-button class="md-icon-button" aria-label="Settings">
-                        <md-icon md-svg-icon="images/menu.svg"></md-icon>
-                    </md-button>
-                    <md-button class="md-icon-button" aria-label="Share">
-                        <md-icon md-svg-icon="images/share.svg"></md-icon>
-                    </md-button>
-                </md-card-actions>
-            </md-card>
-        </md-grid-tile>
-        
-    </md-grid-list>
-
+        </md-grid-list>
+    </div>
 </div>

@@ -36,7 +36,7 @@
             for (var i = 0; i < views.length; i++) {
                 $routeProvider.when('/' + views[i].siteUrl, {
                     templateUrl: views[i].templateUrl,
-                    controller: '',
+                    controller: views[i].controller,
                     caseInsensitiveMatch: true
                 });
             }
