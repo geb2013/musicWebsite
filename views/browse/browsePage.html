@@ -1,13 +1,20 @@
-<div style="padding-top: 100px" ng-controller="BrowseController as browseCtrl">
-    <div ng-repeat="album in albums" style="padding-top:30px">
-        <md-display-1>{{album.name}}</md-display-1>
+<div ng-controller="BrowseController as browseCtrl">
+    <div ng-repeat="album in albums" style="padding-bottom:30px; width: 100%">
+        <div layout="row" layout-align="center center" class="albumTitle" style="background-color: {{album.color}};">
+                {{album.name}}
+            <div layout="row" layout-align="end center" style="width: 100%">
+                <md-button class="md-fab md-primary" aria-label="Collapse">
+                    <md-icon md-svg-src="images/less_icon.svg"></md-icon>
+                </md-button>
+            </div>
+        </div>
         
         <md-grid-list md-cols="1" md-cols-gt-xs="2" md-cols-gt-sm="3" md-cols-gt-md="4"
             md-row-height-gt-md="1:1" md-row-height="1:1"
             md-gutter="12px" md-gutter-gt-sm="8px">
             
             <md-grid-tile ng-repeat="song in album.songs">
-                <md-card style="height: 100%; width: 100%; background: #aed581">
+                <md-card style="height: 100%; width: 100%; background: {{album.color}}">
                     <img ng-src="images/washedout.png" class="md-card-image" alt="Washed Out">
                     <md-card-title>
                         <md-card-title-text>

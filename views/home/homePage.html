@@ -1,0 +1,30 @@
+<div ng-controller="HomeController as homeCtrl"
+     layout="row" layout-wrap>
+    <div flex="100" layout="row" layout-align="center center">
+        <md-button class="md-raised md-accent">BUY ALL ALBUMS!</md-button>
+    </div>
+    <div layout="row" ng-repeat="shortcut in shortcuts" flex-gt-sm="33" flex-sm="50" flex-xs="100">
+        <md-card class="card" style="background-image: url(images/{{shortcut.image}});">
+            <md-card-title style="background: {{shortcut.color}};">
+                <md-card-title-text>
+                    <span layout="row" layout-align="center center" class="md-headline">
+                        {{shortcut.name}}
+                    </span>
+                </md-card-title-text>
+            </md-card-title>
+            <div flex style="height: 20px">TeST</div>
+            <md-card-actions layout="row" layout-align="center center"
+                style="background: {{shortcut.color}};">
+                <md-button class="md-icon-button" aria-label="Favorite">
+                    <md-icon md-svg-icon="images/favorite.svg"></md-icon>
+                </md-button>
+                <md-button class="md-icon-button" aria-label="Settings">
+                    <md-icon md-svg-icon="images/menu.svg"></md-icon>
+                </md-button>
+                <md-button class="md-icon-button" aria-label="Share">
+                    <md-icon md-svg-icon="images/share.svg"></md-icon>
+                </md-button>
+            </md-card-actions>
+        </md-card>
+    <div>
+</div>

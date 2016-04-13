@@ -11,6 +11,7 @@
         {
             name: 'Porcelain',
             image: 'svg-1',
+            color: '#8BC34A',
             songs: [
                 { 
                     title: 'Hard To Find',
@@ -41,6 +42,7 @@
         {
             name: 'Rip',
             image: 'svg-1',
+            color: '#FFC107',
             songs: [
                 { 
                     title: 'Misery',
@@ -55,6 +57,7 @@
         {
             name: 'Royal Palace',
             image: 'svg-1',
+            color: '#607D8B',
             songs: [
                 { 
                     title: 'Another In A Million',

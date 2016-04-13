@@ -9,7 +9,7 @@
     
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     
-    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+    <!--<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>-->
     <link rel="stylesheet" href="styles.css"/>
     
     <style type="text/css">
@@ -45,27 +45,30 @@
 
     <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
 
-        <md-toolbar layout="row" class="md-whiteframe-z1">
-            <md-button id="main" class="menu" hide-gt-md ng-click="vl.toggleList()" aria-label="Show View List">
+        <md-toolbar layout="row" layout-align="center center" class="md-whiteframe-z1">
+            <md-button id="main" class="menu" hide-gt-md ng-click="vl.toggleList()" aria-label="Show View List"
+            style="margin-bottom:16px">
                 <md-icon md-svg-icon="menu" ></md-icon>
             </md-button>
             <h3>Music Website</h3>
         </md-toolbar>
 
-        <md-content flex ng-view id="content">
+        <md-content flex ng-view class="md-padding">
         </md-content>
 
     </div>
 
-    <script src="/3rdParty-js/angular.js"></script>
-    <script src="/3rdParty-js/angular-aria.js"></script>
-    <script src="/3rdParty-js/angular-animate.js"></script>
-    <script src="/3rdParty-js/angular-material.js"></script>
-    <script src="/3rdParty-js/angular-route.js"></script>
+    <script src="3rdParty-js/angular.js"></script>
+    <script src="3rdParty-js/angular-aria.js"></script>
+    <script src="3rdParty-js/angular-animate.js"></script>
+    <script src="3rdParty-js/angular-material.js"></script>
+    <script src="3rdParty-js/angular-route.js"></script>
     <script src="main.js"></script>
 
     <script src="./views/ViewController.js"></script>
-    <script src="./views/BrowseController.js"></script>
+    <script src="./views/home/homeController.js"></script>
+    <script src="./views/browse/BrowseController.js"></script>
+    <script src="./views/john/johnController.js"></script>
 
 </body>
 </html>
