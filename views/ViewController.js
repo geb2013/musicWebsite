@@ -69,10 +69,11 @@
     function ViewController( $mdSidenav, $mdBottomSheet, $log) {
         var self = this;
 
-        self.selected     = null;
-        self.views        = views;
-        self.selectView   = selectView;
-        self.toggleList   = toggleViewsList;
+        self.selected       = null;
+        self.views          = views;
+        self.navigateToPage = navigateToPage;
+        self.selectView     = selectView;
+        self.toggleList     = toggleViewsList;
 
         
         // *********************************
@@ -85,13 +86,22 @@
         function toggleViewsList() {
             $mdSidenav('left').toggle();
         }
+        
+        function navigateToPage (url) {
+            for (var i = 0; i < self.views.length; i++) {
+                if (url == self.views[i].siteUrl) {
+                    selectView(self.views[i]);
+                    break;
+                }
+            }
+        }
 
         /**
          * Select the current avatars
          * @param menuId
          */
         function selectView ( view ) {
-            self.selected = angular.isNumber(view) ? $scope.views[view] : view;
+            self.selected = view;
             window.location.hash = "/" + view.siteUrl;
         }
         

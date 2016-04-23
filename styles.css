@@ -28168,3 +28168,8 @@ span.name {
   background-position: 50% 50%;
   margin: 5px;
 }
+
+/* line 144, sass/custom-styles/_components.scss */
+.clickable {
+  cursor: pointer;
+}

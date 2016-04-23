@@ -3,8 +3,8 @@
     
     var myApp = angular.module('myApp');
     
-    myApp.controller('BrowseController', ['$scope', '$log',
-        BrowseController
+    myApp.controller('JohnController', ['$scope', '$log',
+        JohnController
     ]);
     
     var albums = [
@@ -71,7 +71,7 @@
         },
     ];
     
-    function BrowseController($scope, $log) {
+    function JohnController($scope, $log) {
         $scope.albums = albums;
     }
     

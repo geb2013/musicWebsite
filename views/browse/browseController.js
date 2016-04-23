@@ -10,8 +10,9 @@
     var albums = [
         {
             name: 'Porcelain',
-            image: 'svg-1',
+            image: 'porcelain_cover.jpg',
             color: '#8BC34A',
+            collapsed: false,
             songs: [
                 { 
                     title: 'Hard To Find',
@@ -41,8 +42,9 @@
         },
         {
             name: 'Rip',
-            image: 'svg-1',
+            image: 'rip_cover.jpg',
             color: '#FFC107',
+            collapsed: false,
             songs: [
                 { 
                     title: 'Misery',
@@ -56,8 +58,9 @@
         },
         {
             name: 'Royal Palace',
-            image: 'svg-1',
+            image: 'royal_palace_cover.jpg',
             color: '#607D8B',
+            collapsed: false,
             songs: [
                 { 
                     title: 'Another In A Million',
