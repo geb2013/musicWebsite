@@ -13,15 +13,19 @@
             name: 'Home',
             avatar: '',
             siteUrl: '',
-            templateUrl: './views/home/homePage.html',
-            content: 'I love cheese, especially airedale queso. Cheese and biscuits halloumi cauliflower cheese cottage cheese swiss boursin fondue caerphilly. Cow port-salut camembert de normandie macaroni cheese feta who moved my cheese babybel boursin. Red leicester roquefort boursin squirty cheese jarlsberg blue castello caerphilly chalk and cheese. Lancashire.'
+            templateUrl: './views/home/homePage.html'
         },
         {
             name: 'Browse',
             avatar: '',
             siteUrl: 'browse',
-            templateUrl: './views/browse/browsePage.html',
-            content: 'Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris.'
+            templateUrl: './views/browse/browsePage.html'
+        },
+        {
+            name: 'Cart',
+            avatar: '',
+            siteUrl: 'cart',
+            templateUrl: './views/cart/cartPage.html'
         },
         {
             name: 'John',
@@ -88,6 +92,7 @@
         }
         
         function navigateToPage (url) {
+            console.log(url);
             for (var i = 0; i < self.views.length; i++) {
                 if (url == self.views[i].siteUrl) {
                     selectView(self.views[i]);

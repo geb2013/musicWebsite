@@ -3,24 +3,49 @@
     <div flex="100" layout="row" layout-align="center center">
         <md-button class="md-raised md-accent">BUY ALL ALBUMS!</md-button>
     </div>
-    <div layout="row" layout-align="center center" ng-repeat="shortcut in shortcuts" flex-gt-sm="33" flex-sm="50" flex-xs="100">
+    
+    <div layout="row" layout-align="center center" ng-repeat="album in shortcuts.albums" flex-gt-sm="33" flex-sm="50" flex-xs="100">
         <div layout="row" layout-align="center center" 
              style="max-width: 300px; width: 100%; max-height: 300px; margin: 10px">
-            <md-card ng-click="vl.navigateToPage('browse')"
-                     class="card" 
-                     style="background-image: url(images/{{shortcut.image}});">
-                <md-card-title style="background: {{shortcut.color}};">
+            <md-card ng-click="vl.navigateToPage(album.url)"
+                     class="card clickable" 
+                     style="background-image: url(images/{{album.image}});">
+                <md-card-title style="background: {{album.color}};">
                     <md-card-title-text>
-                        <span layout="row" layout-align="center center" class="md-headline">
-                            {{shortcut.name}}
+                        <span layout="row" layout-align="center center" class="md-headline unselectable">
+                            {{album.name}}
                         </span>
                     </md-card-title-text>
                 </md-card-title>
                 <div flex style="height: 140px"></div>
                 <md-card-actions layout="row" layout-align="center center"
-                    style="background: {{shortcut.color}};">
-                    <md-button style="width: 75%">
+                    style="background: {{album.color}};">
+                    <md-button ng-click="buyAlbum(vl, album)" style="width: 75%">
                         BUY NOW
+                    </md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
+    </div>
+    
+    <div layout="row" layout-align="center center" ng-repeat="bio in shortcuts.bios" flex-gt-sm="33" flex-sm="50" flex-xs="100">
+        <div layout="row" layout-align="center center" 
+             style="max-width: 300px; width: 100%; max-height: 300px; margin: 10px">
+            <md-card ng-click="vl.navigateToPage(bio.url)"
+                     class="card clickable" 
+                     style="background-image: url(images/{{bio.image}});">
+                <md-card-title style="background: {{bio.color}};">
+                    <md-card-title-text>
+                        <span layout="row" layout-align="center center" class="md-headline unselectable">
+                            {{bio.name}}
+                        </span>
+                    </md-card-title-text>
+                </md-card-title>
+                <div flex style="height: 140px"></div>
+                <md-card-actions layout="row" layout-align="center center"
+                    style="background: {{bio.color}};">
+                    <md-button style="width: 75%">
+                        Learn More
                     </md-button>
                 </md-card-actions>
             </md-card>

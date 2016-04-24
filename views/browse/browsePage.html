@@ -1,42 +1,36 @@
 <div ng-controller="BrowseController as browseCtrl">
     <div ng-repeat="album in albums" style="padding-bottom:30px; width: 100%">
         <div layout="row" layout-align="center center" class="albumTitle" style="background-color: {{album.color}};">
+            <div flex>
                 {{album.name}}
-            <div layout="row" layout-align="end center" style="width: 100%">
-                <md-button class="md-fab md-primary" aria-label="Collapse"
-                    ng-click="album.collapsed = !album.collapsed">
-                    <md-icon md-svg-src="{{album.collapsed && 'images/more_icon.svg' || 'images/less_icon.svg'}}"></md-icon>
-                </md-button>
             </div>
+            <md-button class="md-fab md-mini md-accent" aria-label="Collapse"
+                ng-click="album.collapsed = !album.collapsed">
+                <md-icon md-svg-src="{{album.collapsed && 'images/more_icon.svg' || 'images/less_icon.svg'}}"></md-icon>
+            </md-button>
         </div>
         
-        <md-grid-list md-cols="1" md-cols-gt-xs="2" md-cols-gt-sm="3" md-cols-gt-md="4"
-            md-row-height-gt-md="1:1" md-row-height="1:1"
-            md-gutter="12px" md-gutter-gt-sm="8px"
-            ng-if="!album.collapsed">
-            
-            <md-grid-tile ng-repeat="song in album.songs">
-                <md-card style="height: 100%; width: 100%; background: {{album.color}}">
-                    <img ng-src="images/{{album.image}}" class="md-card-image" alt="Washed Out">
-                    <md-card-title>
-                        <md-card-title-text>
-                            <span class="md-headline">{{song.title}}</span>
-                        </md-card-title-text>
-                    </md-card-title>
-                    <md-card-actions layout="row" layout-align="end center">
-                        <md-button class="md-icon-button" aria-label="Favorite">
-                            <md-icon md-svg-icon="images/favorite.svg"></md-icon>
-                        </md-button>
-                        <md-button class="md-icon-button" aria-label="Settings">
-                            <md-icon md-svg-icon="images/menu.svg"></md-icon>
-                        </md-button>
-                        <md-button class="md-icon-button" aria-label="Share">
-                            <md-icon md-svg-icon="images/share.svg"></md-icon>
-                        </md-button>
-                    </md-card-actions>
-                </md-card>
-            </md-grid-tile>
-
-        </md-grid-list>
+        <div layout="column" ng-if="!album.collapsed">
+            <div layout="column" ng-repeat="song in album.songs">
+                <div layout="row" layout-align="center center"
+                     class="md-padding">
+                    <div flex class="md-headline">
+                        {{song.title}}
+                    </div>
+                    <md-button ng-if="song.status == 0" ng-click="addToCart(song)" class="md-raised md-primary" align="right">
+                        <md-icon md-svg-src="images/add_shopping_cart.svg"
+                                 aria-label="addToCart"
+                                 style="color: white"></md-icon>
+                    </md-button>
+                    <div ng-if="song.status == 1" class="success unselectable">
+                        In Cart
+                    </div>
+                    <md-button ng-if="song.status == 2" class="md-raised md-primary" align="right">
+                        Download
+                    </md-button>
+                </div>
+                <md-divider></md-divider>
+            </div>
+        </div>
     </div>
 </div>

@@ -1,0 +1,35 @@
+<div ng-controller="CartController as cartCtrl">
+    <md-card layout="column">
+        <md-toolbar class="md-accent">
+            <div layout="row" layout-align="center center" class="md-toolbar-tools">
+                Cart
+            </div>
+        </md-toolbar>
+
+        <div layout="column" ng-if="item.status == 1" ng-repeat="item in items">
+            <div layout="row" layout-align="center center"
+                 class="md-padding">
+                <div flex class="md-headline">
+                    {{item.title}}
+                </div>
+                <div class="md-headline">
+                    $1
+                </div>
+                <md-button ng-click="removeFromCart(item)" class="md-fab md-mini md-warn">
+                    <md-icon md-svg-src="images/remove_shopping_cart.svg"
+                             aria-label="removeFromCart"
+                             style="color: white"></md-icon>
+                </md-button>
+            </div>
+            <md-divider></md-divider>
+        </div>
+        
+        <div layout="row">
+            <div flex></div>
+            <md-button class="md-raised md-accent">
+                Checkout
+            </md-button>
+            <div flex></div>
+        </div>
+    </md-card>
+</div>

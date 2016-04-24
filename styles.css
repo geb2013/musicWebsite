@@ -28173,3 +28173,24 @@ span.name {
 .clickable {
   cursor: pointer;
 }
+/* line 146, sass/custom-styles/_components.scss */
+.clickable:focus {
+  outline: none;
+  border: 0;
+}
+
+/* line 152, sass/custom-styles/_components.scss */
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* line 161, sass/custom-styles/_components.scss */
+.success {
+  color: #4CAF50;
+  font-weight: bold;
+}

@@ -20,7 +20,8 @@
     myApp.config(function($mdThemingProvider) {
         $mdThemingProvider.theme('default')
             .primaryPalette('blue')
-            .accentPalette('green');
+            .accentPalette('deep-purple')
+            .warnPalette('red');
     });
 
 })();

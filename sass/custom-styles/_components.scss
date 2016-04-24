@@ -143,4 +143,22 @@ span.name {
 
 .clickable {
     cursor: pointer;
+    &:focus {
+        outline: none;
+        border: 0;
+    }
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.success {
+    color: #4CAF50;
+    font-weight: bold;
 }
