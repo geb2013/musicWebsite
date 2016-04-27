@@ -35,7 +35,7 @@
         <md-list>
             <md-list-item ng-repeat="it in vl.views">
                 <md-button ng-click="vl.selectView(it)" ng-class="{'selected' : it === vl.selected }">
-                    <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
+                    <md-icon md-svg-icon="{{it.avatar}}" class="avatar md-accent"></md-icon>
                     {{it.name}}
                 </md-button>
             </md-list-item>
@@ -50,7 +50,7 @@
             style="margin-bottom:16px">
                 <md-icon md-svg-icon="menu" ></md-icon>
             </md-button>
-            <h3>Music Website</h3>
+            <h3 class="unselectable clickable" ng-click="vl.navigateToPage('')">Music Website</h3>
             <md-button id="main" hide-gt-md ng-click="vl.navigateToPage('cart')" aria-label="Show View List"
                        class="menu" style="margin-bottom:16px">
                 6

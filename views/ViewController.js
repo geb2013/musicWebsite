@@ -11,19 +11,19 @@
     var views = [
         {
             name: 'Home',
-            avatar: '',
+            avatar: 'images/home.svg',
             siteUrl: '',
             templateUrl: './views/home/homePage.html'
         },
         {
             name: 'Browse',
-            avatar: '',
+            avatar: 'images/search.svg',
             siteUrl: 'browse',
             templateUrl: './views/browse/browsePage.html'
         },
         {
             name: 'Cart',
-            avatar: '',
+            avatar: 'images/shopping_cart.svg',
             siteUrl: 'cart',
             templateUrl: './views/cart/cartPage.html'
         },
@@ -35,7 +35,7 @@
         },
         {
             name: 'Van',
-            avatar: 'svg-2',
+            avatar: 'svg-1',
             siteUrl: 'van',
             templateUrl: './views/van/vanPage.html'
         },
@@ -92,7 +92,6 @@
         }
         
         function navigateToPage (url) {
-            console.log(url);
             for (var i = 0; i < self.views.length; i++) {
                 if (url == self.views[i].siteUrl) {
                     selectView(self.views[i]);

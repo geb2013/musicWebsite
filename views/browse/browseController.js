@@ -13,6 +13,7 @@
             image: 'porcelain_cover.jpg',
             color: '#8BC34A',
             collapsed: false,
+            status: 0,
             songs: [
                 { 
                     title: 'Hard To Find',
@@ -51,6 +52,7 @@
             image: 'rip_cover.jpg',
             color: '#FFC107',
             collapsed: false,
+            status: 0,
             songs: [
                 { 
                     title: 'Misery',
@@ -69,6 +71,7 @@
             image: 'royal_palace_cover.jpg',
             color: '#607D8B',
             collapsed: false,
+            status: 0,
             songs: [
                 { 
                     title: 'Another In A Million',
@@ -87,8 +90,8 @@
     function BrowseController($scope, $log) {
         $scope.albums = albums;
         
-        $scope.addToCart = function(song) {
-            song.status = 1;
+        $scope.addToCart = function(item) {
+            item.status = 1;
         }
     }
     
