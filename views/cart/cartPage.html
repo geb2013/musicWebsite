@@ -23,10 +23,14 @@
             </div>
             <md-divider></md-divider>
         </div>
+        <div layout="row" layout-align="center center" ng-if="numItems <= 0"
+             class="md-padding">
+            No items in cart.
+        </div>
         
         <div layout="row">
             <div flex></div>
-            <md-button class="md-raised md-accent">
+            <md-button ng-disabled="numItems <=0" class="md-raised md-accent">
                 Checkout
             </md-button>
             <div flex></div>

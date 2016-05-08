@@ -42,10 +42,22 @@
     
     function CartController($scope, $log) {
         $scope.items = items;
+        $scope.numItems = getNumItems($scope.items);
         
         $scope.removeFromCart = function(item) {
             item.status = 0;
+            $scope.numItems = getNumItems($scope.items);
         }
+    }
+    
+    function getNumItems(itemList) {
+        var count = 0;
+        for(var i = 0; i < itemList.length; i++) {
+            if (itemList[i].status == 1) {
+                count++
+            }
+        }
+        return count;
     }
     
 })();
