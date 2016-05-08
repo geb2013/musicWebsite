@@ -44,6 +44,12 @@
             avatar: 'svg-3',
             siteUrl: 'jane',
             templateUrl: './views/jane/janePage.html'
+        },
+        {
+            name: 'Login',
+            avatar: 'images/account_circle.svg',
+            siteUrl: 'login',
+            templateUrl: './views/login/loginPage.html'
         }
     ];
     
