@@ -1,6 +1,7 @@
 <div ng-controller="BrowseController as browseCtrl">
     <div ng-repeat="album in albums" style="padding-bottom:30px; width: 100%">
-        <div layout="row" layout-align="center center" class="albumTitle" style="background-color: {{album.color}};">
+        <div layout="row" layout-align="center center" class="albumTitle"
+             ng-style="{'background-color': album.color}">
             <div flex>
                 {{album.name}}
             </div>

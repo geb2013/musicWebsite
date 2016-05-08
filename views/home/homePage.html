@@ -10,7 +10,7 @@
             <md-card ng-click="vl.navigateToPage(album.url)"
                      class="card clickable" 
                      style="background-image: url(images/{{album.image}});">
-                <md-card-title style="background-color: {{album.color}};">
+                <md-card-title ng-style="{'background-color': album.color}">
                     <md-card-title-text>
                         <span layout="row" layout-align="center center" class="md-headline unselectable">
                             {{album.name}}
@@ -19,7 +19,7 @@
                 </md-card-title>
                 <div flex style="height: 140px"></div>
                 <md-card-actions layout="row" layout-align="center center"
-                    style="background-color: {{album.color}};">
+                                 ng-style="{'background-color': album.color}">
                     <md-button ng-click="buyAlbum(vl, album)" style="width: 75%">
                         BUY NOW
                     </md-button>
@@ -34,7 +34,7 @@
             <md-card ng-click="vl.navigateToPage(bio.url)"
                      class="card clickable" 
                      style="background-image: url(images/{{bio.image}});">
-                <md-card-title style="background-color: {{bio.color}};">
+                <md-card-title ng-style="{'background-color': bio.color}">
                     <md-card-title-text>
                         <span layout="row" layout-align="center center" class="md-headline unselectable">
                             {{bio.name}}
@@ -43,7 +43,7 @@
                 </md-card-title>
                 <div flex style="height: 140px"></div>
                 <md-card-actions layout="row" layout-align="center center"
-                    style="background-color: {{bio.color}};">
+                    ng-style="{'background-color': bio.color}">
                     <md-button style="width: 75%">
                         Learn More
                     </md-button>
