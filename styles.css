@@ -28194,3 +28194,38 @@ span.name {
   color: #4CAF50;
   font-weight: bold;
 }
+
+/* line 167, sass/custom-styles/_components.scss */
+.no-click-highlight:focus {
+  outline: none;
+  border: 0;
+}
+
+/* line 174, sass/custom-styles/_components.scss */
+.modifiable-text:hover {
+  border: solid 1px black;
+  padding: 5px;
+}
+
+/* line 180, sass/custom-styles/_components.scss */
+.picture-container {
+  position: relative;
+  float: left;
+  margin: 0px;
+}
+/* line 185, sass/custom-styles/_components.scss */
+.picture-container:hover img {
+  opacity: 0.5;
+}
+/* line 188, sass/custom-styles/_components.scss */
+.picture-container:hover .update label {
+  display: block;
+}
+/* line 192, sass/custom-styles/_components.scss */
+.picture-container .update {
+  top: 0px;
+}
+/* line 196, sass/custom-styles/_components.scss */
+.picture-container .update label {
+  display: none;
+}

@@ -162,3 +162,39 @@ span.name {
     color: #4CAF50;
     font-weight: bold;
 }
+
+.no-click-highlight {
+    &:focus {
+        outline: none;
+        border: 0;
+    }
+}
+
+.modifiable-text {
+    &:hover {
+        border: solid 1px black;
+        padding: 5px;
+    }
+}
+
+.picture-container {
+    position: relative;
+    float: left;
+    margin: 0px;
+    &:hover {
+        img {
+            opacity:0.5;
+        }
+        .update label {
+            display: block;
+        }
+    }
+    .update {
+//        position:absolute;
+        top: 0px;
+//        left: 0px;
+        label {
+            display:none;
+        }
+    }
+}

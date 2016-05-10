@@ -41,6 +41,34 @@
         $scope.setBio = function(person) {
             $scope.selected = person;
         }
+        
+        //SET THIS TO ALLOW EDIT
+        $scope.isAdmin = false;
+        
+        $scope.modify = false;
+        
+        $scope.startEdit = function() {
+            $scope.modify = $scope.isAdmin;
+        }
+        
+        $scope.saveContent = function(person) {
+            var textElement = document.getElementById("modify-textarea");
+            $scope.selected.content = $sce.trustAsHtml(textElement.value);
+            
+            $scope.modify = false;
+        }
+        
+        $scope.cancel = function() {
+            $scope.modify = false;
+        }
+        
+        $scope.changePicture = function() {
+            var fileInput = document.getElementById('file-input');
+            fileInput.onchange = function () {
+                // Use this.files[0] to access the selected file
+            };
+        }
+ 
     }
     
 })();
