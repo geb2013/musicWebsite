@@ -31,19 +31,19 @@
         bios: [
             {
                 name: 'John',
-                image: 'phone.svg',
+                image: 'Immo_2.jpg',
                 color: '#8BC34A',
                 url: 'john'
             },
             {
                 name: 'Van',
-                image: 'mail.svg',
+                image: 'Van.jpg',
                 color: '#FFC107',
                 url: 'van'
             },
             {
                 name: 'Jane',
-                image: 'hangouts.svg',
+                image: 'Jane.jpg',
                 color: '#607D8B',
                 url: 'jane'
             }
