@@ -53,7 +53,17 @@
     function HomeController($scope, $log) {
         $scope.shortcuts = shortcuts;
         
+        $scope.buyAll = function (viewCtrl) {
+            //Add "All songs" to cart
+            
+            //Redirec to cart
+            viewCtrl.navigateToPage('cart');
+        }
+        
         $scope.buyAlbum = function (viewCtrl, album) {
+            //Add album to cart
+            
+            //Redirect to cart
             viewCtrl.navigateToPage('cart');
         }
     }
