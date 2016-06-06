@@ -3,7 +3,7 @@
     
     var myApp = angular.module('myApp');
     
-    myApp.controller('BrowseController', ['$scope', '$log',
+    myApp.controller('BrowseController', ['$scope', '$log', 'LoginService',
         BrowseController
     ]);
     
@@ -87,8 +87,10 @@
         },
     ];
     
-    function BrowseController($scope, $log) {
+    function BrowseController($scope, $log, LoginService) {
         $scope.albums = albums;
+        
+        $scope.loggedIn = LoginService.loggedIn;
         
         $scope.addToCart = function(item) {
             item.status = 1;

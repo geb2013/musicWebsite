@@ -1,5 +1,5 @@
 <div ng-controller="LoginController as loginCtrl">
-    <md-card layout="column">
+    <md-card layout="column" ng-if="!loggedIn">
         <md-toolbar class="md-accent">
             <div layout="row" layout-align="center center" class="md-toolbar-tools">
                 Account Login/Creation
@@ -31,5 +31,21 @@
                 <div flex></div>
             </div>
         </md-content>
+    </md-card>
+        
+    <md-card layout="column" ng-if="loggedIn">
+        <md-toolbar class="md-accent">
+            <div layout="row" layout-align="center center" class="md-toolbar-tools">
+                Login
+            </div>
+        </md-toolbar>
+
+        <div layout="column" layout-align="center center"
+             class="md-padding">
+            Login Success!
+            <md-button ng-click="vl.navigateToPage('browse')" class="md-primary md-raised">
+                Browse
+            </md-button>
+        </div>
     </md-card>
 </div>

@@ -3,7 +3,7 @@
     
     var myApp = angular.module('myApp');
     
-    myApp.controller('CartController', ['$scope', '$log',
+    myApp.controller('CartController', ['$scope', '$log', 'LoginService',
         CartController
     ]);
     
@@ -41,7 +41,7 @@
         }
     ];
     
-    function CartController($scope, $log) {
+    function CartController($scope, $log, LoginService) {
         $scope.items = items;
         $scope.numItems = getNumItems($scope.items);
         
@@ -62,6 +62,8 @@
         $scope.inCart = {
             status: 1
         }
+        
+        $scope.loggedIn = LoginService.loggedIn;
     }
     
     function getNumItems(itemList) {

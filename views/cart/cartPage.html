@@ -9,7 +9,7 @@
         <input type="hidden" name="callback_timeout" value="3">
         <input type="hidden" name="callback_version" value="61"><!--Required! -->
         
-        <md-card layout="column">
+        <md-card layout="column" ng-if="loggedIn">
             <md-toolbar class="md-accent">
                 <div layout="row" layout-align="center center" class="md-toolbar-tools">
                     Cart
@@ -38,7 +38,7 @@
             <div layout="column" layout-align="center center" ng-if="numItems <= 0"
                  class="md-padding">
                 No items in cart.
-                <md-button class="md-primary md-raised">
+                <md-button ng-click="vl.navigateToPage('browse')" class="md-primary md-raised">
                     Browse
                 </md-button>
             </div>
@@ -50,4 +50,20 @@
             </div>
         </md-card>
     </form>
+        
+    <md-card layout="column" ng-if="!loggedIn">
+        <md-toolbar class="md-accent">
+            <div layout="row" layout-align="center center" class="md-toolbar-tools">
+                Cart
+            </div>
+        </md-toolbar>
+
+        <div layout="column" layout-align="center center"
+             class="md-padding">
+            You are not logged in.
+            <md-button ng-click="vl.navigateToPage('login')" class="md-primary md-raised">
+                Login
+            </md-button>
+        </div>
+    </md-card>
 </div>

@@ -1,5 +1,5 @@
 <div ng-controller="BrowseController as browseCtrl">
-    <div ng-repeat="album in albums" style="padding-bottom:30px; width: 100%">
+    <div ng-repeat="album in albums" style="padding-bottom:30px; width: 100%" ng-if="loggedIn">
         <div layout="row" layout-align="center center" class="albumTitle"
              ng-style="{'background-color': album.color}">
             <div flex>
@@ -39,4 +39,20 @@
             </div>
         </div>
     </div>
+        
+    <md-card layout="column" ng-if="!loggedIn">
+        <md-toolbar class="md-accent">
+            <div layout="row" layout-align="center center" class="md-toolbar-tools">
+                Browse
+            </div>
+        </md-toolbar>
+
+        <div layout="column" layout-align="center center"
+             class="md-padding">
+            You must be logged in to browse the collection of music.
+            <md-button ng-click="vl.navigateToPage('login')" class="md-primary md-raised">
+                Login
+            </md-button>
+        </div>
+    </md-card>
 </div>

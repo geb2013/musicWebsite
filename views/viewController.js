@@ -4,7 +4,7 @@
     var myApp = angular.module('myApp');
     
     myApp.controller('ViewController', 
-                          ['$mdSidenav', '$mdBottomSheet', '$log', '$q',
+        ['$mdSidenav', '$mdBottomSheet', '$log', 'LoginService',
         ViewController
     ]);
     
@@ -19,13 +19,15 @@
             name: 'Browse',
             avatar: 'images/search.svg',
             siteUrl: 'browse',
-            templateUrl: './views/browse/browsePage.html'
+            templateUrl: './views/browse/browsePage.html',
+            requiresLogin: true
         },
         {
             name: 'Cart',
             avatar: 'images/shopping_cart.svg',
             siteUrl: 'cart',
-            templateUrl: './views/cart/cartPage.html'
+            templateUrl: './views/cart/cartPage.html',
+            requiresLogin: true
         },
         {
             name: 'John',
@@ -76,7 +78,7 @@
     * @param avatarsService
     * @constructor
     */
-    function ViewController( $mdSidenav, $mdBottomSheet, $log) {
+    function ViewController( $mdSidenav, $mdBottomSheet, $log, LoginService) {
         var self = this;
 
         self.selected       = null;
@@ -111,8 +113,12 @@
          * @param menuId
          */
         function selectView ( view ) {
-            self.selected = view;
-            window.location.hash = "/" + view.siteUrl;
+            if (view.requiresLogin && !LoginService.loggedIn) {
+                navigateToPage('login');
+            } else {
+                self.selected = view;
+                window.location.hash = "/" + view.siteUrl;
+            }
         }
         
     }
