@@ -7,17 +7,33 @@
         </md-toolbar>
 
         <md-content layout="column" class="md-padding">
-            <div layout="column" layout-align="center center"
+            <form name="userForm" layout="column" layout-align="center center"
                  class="md-padding">
-                <md-input-container style="margin-bottom: 0px">
+                <md-input-container class="md-block" flex-gt-sm>
                     <label>Email</label>
-                    <input ng-model="user.email" type="email">
+                    <input name="email" ng-model="user.email"
+                    required minlength="8" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+                    <div class="hint" ng-show="showHints">How can we reach you?</div>
+                    <div ng-messages="userForm.email.$error" ng-hide="showHints">
+                        <div ng-message="required">An email address is required.</div>
+                        <div ng-message="pattern">Invalid email address</div>
+                        <div ng-message-exp="['minlength', 'maxlength']">
+                            Your email must be between 8 and 100 characters long.
+                        </div>
+                    </div>
                 </md-input-container>
                 <md-input-container>
                     <label>Password</label>
-                    <input ng-model="user.password" type="password">
+                    <input name="password" ng-model="user.password" type="password"
+                    required minlength="6" maxlength="30">
+                    <div ng-messages="userForm.password.$error" ng-hide="showHints">
+                        <div ng-message="required">A password is required.</div>
+                        <div ng-message-exp="['minlength', 'maxlength']">
+                            Your password must be between 6 and 30 characters long.
+                        </div>
+                    </div>
                 </md-input-container>
-            </div>
+            </form>
 
             <div layout="row" layout-align="center center" ng-if="errorMessage">
                 {{errorMessage}}
@@ -25,11 +41,11 @@
             
             <div layout="row">
                 <div flex></div>
-                <md-button ng-click="login()" class="md-raised md-accent">
+                <md-button ng-disabled="!userForm.$valid" ng-click="login()" class="md-raised md-accent">
                     Login
                 </md-button>
                 <div style="padding: 20px;"></div>
-                <md-button ng-click="createAccount()" class="md-raised md-accent">
+                <md-button ng-disabled="!userForm.$valid" ng-click="createAccount()" class="md-raised md-accent">
                     Create
                 </md-button>
                 <div flex></div>

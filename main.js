@@ -1,7 +1,7 @@
 (function(){
     'use strict';
 
-    var myApp = angular.module('myApp', ['ngMaterial', 'ngRoute']);
+    var myApp = angular.module('myApp', ['ngMaterial', 'ngRoute', 'ngMessages']);
 
     myApp.config(function($mdThemingProvider, $mdIconProvider){
       $mdIconProvider
