@@ -47,9 +47,15 @@
         <div layout="column" layout-align="center center"
              class="md-padding">
             Login Success!
-            <md-button ng-click="vl.navigateToPage('browse')" class="md-primary md-raised">
-                Browse
-            </md-button>
+            <div layout="row" layout-align="center center">
+                <md-button ng-click="vl.navigateToPage('browse')" class="md-primary md-raised">
+                    Browse
+                </md-button>
+                <div style="width: 20px;"></div>
+                <md-button ng-click="logout()" class="md-warn md-raised">
+                    Logout
+                </md-button>
+            </div>
         </div>
     </md-card>
 </div>

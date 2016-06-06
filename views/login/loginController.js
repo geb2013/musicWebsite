@@ -33,7 +33,7 @@
                 $scope.loggedIn = true;
 			}, function errorCallback(response) {
 				console.error(response);
-            $scope.errorMessage = "Failed to login.";
+                $scope.errorMessage = "Failed to login.";
 			});
 		}
         $scope.createAccount = function () {
@@ -50,6 +50,11 @@
                 $scope.errorMessage = "Failed to create account.";
 			});
 		}
+        
+        $scope.logout = function () {
+            LoginService.loggedIn = false;
+            $scope.loggedIn = false;
+        }
     }
     
 })();
