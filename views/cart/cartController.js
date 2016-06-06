@@ -3,49 +3,40 @@
     
     var myApp = angular.module('myApp');
     
-    myApp.controller('CartController', ['$scope', '$log', 'LoginService',
+    myApp.controller('CartController', ['$scope', '$log', '$http', 'LoginService',
         CartController
     ]);
-    
+	
     // Populate this list from database
-    var items = [
-        { 
-            title: 'Porcelain (Album)',
-            status: 1,
-            price: 10
-        },
-        { 
-            title: 'Icepatch',
-            status: 1,
-            price: 1
-        },
-        { 
-            title: 'Got The Time',
-            status: 1,
-            price: 1
-        },
-        { 
-            title: 'My Old Girlfriend',
-            status: 1,
-            price: 1
-        },
-        { 
-            title: 'So Cool',
-            status: 1,
-            price: 1
-        },
-        { 
-            title: 'Creeps',
-            status: 1,
-            price: 1
-        }
-    ];
+    var items = [];
     
-    function CartController($scope, $log, LoginService) {
-        $scope.items = items;
-        $scope.numItems = getNumItems($scope.items);
+    function CartController($scope, $log, $http, LoginService) {
+		$scope.items = items;
+        $scope.loggedIn = LoginService.loggedIn;
+        
+        if ($scope.loggedIn) {
+            $http.get(
+                'getcart.php'
+            ).then(function successCallback(response) {
+                console.log(response.data);
+                $scope.items = response.data;
+                $scope.numItems = getNumItems($scope.items);
+            }, function errorCallback(response) {
+                console.error(response);
+            });
+        }
         
         $scope.removeFromCart = function(item) {
+			console.log(item);
+			$http.post(
+				'removefromcart.php',
+				item
+			).then(function successCallback(response) {
+				console.log(response.data);
+			}, function errorCallback(response) {
+				console.error(response);
+			});
+			
             item.status = 0;
             $scope.numItems = getNumItems($scope.items);
         }
@@ -62,15 +53,14 @@
         $scope.inCart = {
             status: 1
         }
-        
-        $scope.loggedIn = LoginService.loggedIn;
     }
     
     function getNumItems(itemList) {
         var count = 0;
+		console.log(itemList.length);
         for(var i = 0; i < itemList.length; i++) {
             if (itemList[i].status == 1) {
-                count++
+                count++;
             }
         }
         return count;

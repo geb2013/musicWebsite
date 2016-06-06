@@ -1,8 +1,9 @@
 <div ng-controller="CartController as cartCtrl">
-    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+	<!-- <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" > -->
+    <form target="paypal" action="checkoutdummy.php" method="post" >
         <input type="hidden" name="cmd" value="_cart">
         <input type="hidden" name="upload" value="1">
-        <input type="hidden" name="business" value="indeglia@gmail.com">
+        <input type="hidden" name="business" value="boyntonzachery-facilitator@gmail.com">
         
         <!--Replace your_callback_server_URL with the correct URL-->
         <!--<input type="hidden" name="callback_url" value="your_callback_server_URL">-->
@@ -42,12 +43,19 @@
                     Browse
                 </md-button>
             </div>
-
-            <div layout="row" layout-align="center center" ng-if="numItems > 0">
-                <md-button type="submit" aria-label="checkout">
+			
+			<div layout="row" layout-align="center center" ng-if="numItems > 0">
+                <md-button ng-click="dummyFunction()" class="md-fab md-mini md-warn">
                     <img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" align="left" style="margin-right:7px">
                 </md-button>
             </div>
+			
+			<!--
+			<div layout="row" layout-align="center center" ng-if="numItems > 0">
+                <md-button type="submit" aria-label="checkout">
+                    <img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" align="left" style="margin-right:7px">
+                </md-button>
+            </div> -->
         </md-card>
     </form>
         

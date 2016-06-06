@@ -3,7 +3,7 @@
     
     var myApp = angular.module('myApp');
     
-    myApp.controller('LoginController', ['$scope', '$log', 'LoginService',
+    myApp.controller('LoginController', ['$scope', "$log", '$http', 'LoginService',
         LoginController
     ]);
     
@@ -12,38 +12,44 @@
         _this.loggedIn = false;
     });
     
-    function LoginController($scope, $log, LoginService) {
+    function LoginController($scope, $log, $http, LoginService) {
         $scope.user = {
-            email: "",
+            email: '',
             password: ""
         };
         
-        $scope.login = function() { login($scope.user) };
-        $scope.createAccount = createAccount($scope.user);
-        
         $scope.loggedIn = LoginService.loggedIn;
-    
-        function login(user) {
-            //Perform login
-            function callback() {
-                loginCallback(LoginService)
-            }
-
-            callback();
-        }
-
-        function loginCallback() {
-            var success = true;
-
-            if (success) {
+        
+        $scope.errorMessage = "";
+        
+        $scope.login = function () {
+			console.log($scope.user);
+			$http.post(
+				'login.php',
+				$scope.user
+			).then(function successCallback(response) {
+				console.log(response.data);
                 LoginService.loggedIn = true;
                 $scope.loggedIn = true;
-            }
-        }
-
-        function createAccount(user) {
-            //Perform account creation
-        }
+			}, function errorCallback(response) {
+				console.error(response);
+            $scope.errorMessage = "Failed to login.";
+			});
+		}
+        $scope.createAccount = function () {
+			console.log($scope.user);
+			$http.post(
+				'register.php',
+				$scope.user
+			).then(function successCallback(response) {
+				console.log(response.data);
+                LoginService.loggedIn = true;
+                $scope.loggedIn = true;
+			}, function errorCallback(response) {
+				console.error(response);
+                $scope.errorMessage = "Failed to create account.";
+			});
+		}
     }
     
 })();

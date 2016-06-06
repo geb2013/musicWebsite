@@ -3,98 +3,50 @@
     
     var myApp = angular.module('myApp');
     
-    myApp.controller('BrowseController', ['$scope', '$log', 'LoginService',
+    myApp.controller('BrowseController', ['$scope', '$log', '$http', 'LoginService',
         BrowseController
     ]);
+	
+    var albums = [];
     
-    var albums = [
-        {
-            name: 'Porcelain',
-            image: 'porcelain_cover.jpg',
-            color: '#8BC34A',
-            collapsed: false,
-            status: 0,
-            songs: [
-                { 
-                    title: 'Hard To Find',
-                    fileName: '01 Hard to Find.m4a',
-                    status: 0
-                },
-                { 
-                    title: 'Icepatch',
-                    fileName: '02 Icepatch.m4a',
-                    status: 0
-                },
-                { 
-                    title: 'Got The Time',
-                    fileName: '03 Got The Time.m4a',
-                    status: 0
-                },
-                { 
-                    title: 'My Old Girlfriend',
-                    fileName: '04 My Old Girlfriend.m4a',
-                    status: 0
-                },
-                { 
-                    title: 'So Cool',
-                    fileName: '05 So Cool.m4a',
-                    status: 0
-                },
-                { 
-                    title: 'Creeps',
-                    fileName: '06 Creeps.m4a',
-                    status: 0
-                }
-            ]
-        },
-        {
-            name: 'Rip',
-            image: 'rip_cover.jpg',
-            color: '#FFC107',
-            collapsed: false,
-            status: 0,
-            songs: [
-                { 
-                    title: 'Misery',
-                    fileName: '01 Misery.m4a',
-                    status: 0
-                },
-                { 
-                    title: 'Hard To Find',
-                    fileName: '02 Hard To Find.m4a',
-                    status: 0
-                }
-            ]
-        },
-        {
-            name: 'Royal Palace',
-            image: 'royal_palace_cover.jpg',
-            color: '#607D8B',
-            collapsed: false,
-            status: 0,
-            songs: [
-                { 
-                    title: 'Another In A Million',
-                    fileName: '01 Another In A Million.m4a',
-                    status: 0
-                },
-                { 
-                    title: 'Living Dead Again',
-                    fileName: '02 Living Dead Again.m4a',
-                    status: 0
-                }
-            ]
-        },
-    ];
-    
-    function BrowseController($scope, $log, LoginService) {
+    function BrowseController($scope, $log, $http, LoginService) {
         $scope.albums = albums;
-        
         $scope.loggedIn = LoginService.loggedIn;
         
-        $scope.addToCart = function(item) {
+        if ($scope.loggedIn) {
+            $http.get( 
+                'getsongrelationships.php'
+            ).then(function successCallback(response) {
+                $scope.albums = response.data;
+            }, function errorCallback(response) {
+                console.error(response);
+            });
+        }
+		
+        $scope.addToCart = function(item, isSong) {
+			item.isSong = isSong;
+			$http.post(
+				'addtocart.php',
+				item
+			).then(function successCallback(response) {
+				console.log(response.data);
+			}, function errorCallback(response) {
+				console.error(response);
+			});
             item.status = 1;
         }
+		
+		$scope.download = function(song) {
+			window.location='downloadsong.php?song=' + song.id;
+		}
+		
+		$scope.albumAllSongsBought = function(album) {
+			for (var i = 0; i < album.songs.length; i++) {
+				if (album.songs[i].status != 2)
+					return false;
+			}
+			return true;
+		}
     }
     
 })();

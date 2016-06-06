@@ -19,6 +19,10 @@
                 </md-input-container>
             </div>
 
+            <div layout="row" layout-align="center center" ng-if="errorMessage">
+                {{errorMessage}}
+            </div>
+            
             <div layout="row">
                 <div flex></div>
                 <md-button ng-click="login()" class="md-raised md-accent">

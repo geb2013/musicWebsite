@@ -5,7 +5,7 @@
             <div flex>
                 {{album.name}}
             </div>
-            <md-button ng-if="album.status == 0" ng-click="addToCart(album)" class="md-raised md-primary" align="right">
+            <md-button ng-if="album.status == 0 && !albumAllSongsBought(album)" ng-click="addToCart(album, false)" class="md-raised md-primary" align="right">
                 <md-icon md-svg-src="images/add_shopping_cart.svg"
                          aria-label="addToCart"
                          style="color: white"></md-icon>
@@ -23,15 +23,15 @@
                     <div flex class="md-headline">
                         {{song.title}}
                     </div>
-                    <md-button ng-if="song.status == 0 && album.status == 0" ng-click="addToCart(song)" class="md-raised md-primary" align="right">
+                    <md-button ng-if="song.status == 0 && album.status == 0" ng-click="addToCart(song, true)" class="md-raised md-primary" align="right">
                         <md-icon md-svg-src="images/add_shopping_cart.svg"
                                  aria-label="addToCart"
                                  style="color: white"></md-icon>
                     </md-button>
-                    <div ng-if="(song.status == 1 && album.status == 0) || album.status == 1" class="success unselectable">
+                    <div ng-if="(song.status == 1 && album.status == 0) || song.status != 2 && album.status == 1" class="success unselectable">
                         In Cart
                     </div>
-                    <md-button ng-if="(song.status == 2 && album.status == 0) || album.status == 2" class="md-raised md-primary" align="right">
+                    <md-button ng-if="(song.status == 2) || album.status == 2" ng-click="download(song)" class="md-raised md-primary" align="right">
                         Download
                     </md-button>
                 </div>
